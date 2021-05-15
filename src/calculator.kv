@@ -14,21 +14,27 @@
         text: "100"
 
     GridLayout:
+        cols:2
+        size: root.width, (root.height - label_height) / 6
+        pos: 0, (root.height - label_height) * 5 / 6
+        GridLayout:
+            cols:2
+            Button:
+                text: "C"
+                on_press: root.handle_button(self)
+            Button:
+                text: "<-"
+                on_press: root.handle_button(self)
+        
+        Button:
+            text: "="
+            on_press: root.handle_button(self)
+        
+    GridLayout:
         cols: 4
-        size: root.width, root.height - label_height
+        size: root.width, (root.height - label_height) * 4 / 6
+        pos: 0, (root.height - label_height) / 6
 
-        Button:
-            text: "MS"
-            on_press: root.handle_button(self)
-        Button:
-            text: "MR"
-            on_press: root.handle_button(self)
-        Button:
-            text: "C"
-            on_press: root.handle_button(self)
-        Button:
-            text: "<-"
-            on_press: root.handle_button(self)
         Button:
             text: "+"
             on_press: root.handle_button(self)
@@ -77,16 +83,18 @@
         Button:
             text: "√"
             on_press: root.handle_button(self)
+    GridLayout:
+        cols:2
+        size: root.width, (root.height - label_height) / 6
         Button:
             text: "0"
             on_press: root.handle_button(self)
-        Button:
-            text: "."
-            on_press: root.handle_button(self)
-        Button:
-            text: "="
-            on_press: root.handle_button(self)
-        Button:
-            text: "^"
-            on_press: root.handle_button(self)
+        GridLayout:
+            cols:2
+            Button:
+                text: "."
+                on_press: root.handle_button(self)
+            Button:
+                text: "^"
+                on_press: root.handle_button(self)
         
