@@ -71,6 +71,7 @@ class Parser:
                 return res
         elif self.cur.type == TT_SQRT or self.cur.type == TT_MINUS:
             return self.make_un_op_node()
+        raise Exception("Unexpected EOF")
 
     def factor(self):
         return self.make_bin_op_node([TT_POWER], self.atom, True)
