@@ -27,8 +27,9 @@ class RootWidget(Widget):
                 ast = parser.parse()
                 interpreter = Interpreter()
                 res = interpreter.visit(ast)
-                self.text.text = str(res)
-                self.expr = Expression(self.text.text)
+                self.expr = Expression(str(res))
+                self.expr.cleanup()
+                self.text.text = self.expr.text
         else:
             self.expr.add_sym(btn_text)
             self.text.text = self.expr.text

@@ -70,6 +70,19 @@ class Expression:
     def is_last_num_zero(self):
         return self.text[-1] == '0' and (len(self.text) == 1 or self.text[-2] not in DIGITS+'.')
 
+
+    def cleanup(self):
+        if self.text == 'NaN':
+            return
+        try:
+            num = float(self.text)
+            num = round(num, 12)
+            strnum = str(num)
+            if strnum.endswith('.0'):
+                strnum = strnum[:-2]
+            self.text = strnum
+        except Exception as e:
+            print(f"Trying to cleanup not a number: {e}")
     
     def add_sym(self, sym):
         # 0th rule
