@@ -82,7 +82,7 @@ class Expression:
                 strnum = strnum[:-2]
             self.text = strnum
         except Exception as e:
-            print(f"Trying to cleanup not a number: {e}")
+            print(f"Trying to cleanup not a result: {e}")
     
     def add_sym(self, sym):
         # 0th rule
